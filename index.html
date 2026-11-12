@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cotización CH Studio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="panel">
+    <div class="brand-mark">
+      <img src="assets/logo.png" alt="CH Studio">
+    </div>
+    <h1>Nueva cotización</h1>
+    <p class="lede">Completa los campos y genera el PDF con el mismo formato de la plantilla. Lo que dejes vacío no sale en el documento.</p>
+    <div class="actions">
+      <button class="btn-lime" type="button" id="example">Cargar ejemplo</button>
+      <button class="btn-ghost" type="button" id="clear">Limpiar servicio</button>
+    </div>
+
+    <form id="form">
+      <fieldset>
+        <legend>Cliente</legend>
+        <label class="field"><span>Cliente</span><input type="text" name="cliente" autocomplete="name"></label>
+        <div class="row-2">
+          <label class="field"><span>Teléfono</span><input type="tel" name="telefono" autocomplete="tel"></label>
+          <label class="field"><span>Fecha</span><input type="date" name="fecha"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Servicio</legend>
+        <label class="field"><span>Descripción del servicio</span><input type="text" name="descripcion" placeholder="Fotos de embarazo"></label>
+        <div class="row-2">
+          <label class="field"><span>Fecha del servicio</span><input type="date" name="fechaServicio"></label>
+          <label class="field"><span>Hora</span>
+            <select name="horaServicio">
+              <option value="">Seleccionar</option>
+              <option value="por-definir">Por definir</option>
+              <option value="06:00">6:00 a. m.</option>
+              <option value="06:30">6:30 a. m.</option>
+              <option value="07:00">7:00 a. m.</option>
+              <option value="07:30">7:30 a. m.</option>
+              <option value="08:00">8:00 a. m.</option>
+              <option value="08:30">8:30 a. m.</option>
+              <option value="09:00">9:00 a. m.</option>
+              <option value="09:30">9:30 a. m.</option>
+              <option value="10:00">10:00 a. m.</option>
+              <option value="10:30">10:30 a. m.</option>
+              <option value="11:00">11:00 a. m.</option>
+              <option value="11:30">11:30 a. m.</option>
+              <option value="12:00">12:00 p. m.</option>
+              <option value="12:30">12:30 p. m.</option>
+              <option value="13:00">1:00 p. m.</option>
+              <option value="13:30">1:30 p. m.</option>
+              <option value="14:00">2:00 p. m.</option>
+              <option value="14:30">2:30 p. m.</option>
+              <option value="15:00">3:00 p. m.</option>
+              <option value="15:30">3:30 p. m.</option>
+              <option value="16:00">4:00 p. m.</option>
+              <option value="16:30">4:30 p. m.</option>
+              <option value="17:00">5:00 p. m.</option>
+              <option value="17:30">5:30 p. m.</option>
+              <option value="18:00">6:00 p. m.</option>
+              <option value="18:30">6:30 p. m.</option>
+              <option value="19:00">7:00 p. m.</option>
+              <option value="19:30">7:30 p. m.</option>
+              <option value="20:00">8:00 p. m.</option>
+              <option value="20:30">8:30 p. m.</option>
+              <option value="21:00">9:00 p. m.</option>
+              <option value="21:30">9:30 p. m.</option>
+            </select>
+          </label>
+        </div>
+        <div class="row-2">
+          <label class="field"><span>Tiempo estimado</span><input type="text" name="tiempo" placeholder="1 hora"></label>
+          <label class="field"><span>Lugar</span><input type="text" name="lugar" placeholder="Cali"></label>
+        </div>
+        <div class="row-2">
+          <label class="field"><span>Cantidad de invitados <em class="hint">opcional</em></span><input type="text" name="invitados"></label>
+          <label class="field"><span>Cantidad de platos <em class="hint">opcional</em></span><input type="text" name="platos"></label>
+        </div>
+        <label class="field"><span>Equipo humano <em class="hint">opcional</em></span><input type="text" name="equipo" placeholder="1 fotógrafo"></label>
+        <label class="field"><span>Cobertura <em class="hint">opcional</em></span><input type="text" name="cobertura" placeholder="Ceremonia y recepción"></label>
+
+        <p class="list-label">Campos adicionales <span class="hint">etiqueta y valor, por si el servicio necesita otra línea</span></p>
+        <div class="list" id="extras"></div>
+        <button class="add" type="button" data-add="extras">Agregar campo</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Entregables</legend>
+        <div class="list" id="entregables"></div>
+        <button class="add" type="button" data-add="entregables">Agregar entregable</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Inversión</legend>
+        <div class="row-2">
+          <label class="field"><span>Nombre del valor</span><input type="text" name="valorEtiqueta" value="Valor total del paquete"></label>
+          <label class="field"><span>Valor</span><input type="text" name="valor" placeholder="$260.000"></label>
+        </div>
+        <p class="list-label">Condiciones de pago</p>
+        <div class="list" id="pagos"></div>
+        <button class="add" type="button" data-add="pagos">Agregar condición</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Responsabilidades del cliente <span class="hint">opcional</span></legend>
+        <div class="list" id="responsabilidades"></div>
+        <button class="add" type="button" data-add="responsabilidades">Agregar responsabilidad</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Términos y condiciones</legend>
+        <div class="list" id="terminos"></div>
+        <button class="add" type="button" data-add="terminos">Agregar término</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contacto del pie</legend>
+        <p class="list-label">Correos</p>
+        <div class="list" id="correos"></div>
+        <button class="add" type="button" data-add="correos">Agregar correo</button>
+        <p class="list-label" style="margin-top:12px">Teléfonos</p>
+        <div class="list" id="telefonos"></div>
+        <button class="add" type="button" data-add="telefonos">Agregar teléfono</button>
+        <label class="field" style="margin-top:12px"><span>Dirección</span><input type="text" name="direccion" value="cra 1b #73-13"></label>
+      </fieldset>
+      <div class="actions actions-end">
+        <button class="btn-primary" type="button" id="print">Generar PDF</button>
+      </div>
+    </form>
+    <p class="note">El PDF se abre con la ventana de impresión. Elige “Guardar como PDF” o “Microsoft Print to PDF” y deja los márgenes en ninguno.</p>
+  </aside>
+
+  <main class="stage">
+    <article class="sheet" id="sheet" aria-label="Vista previa de la cotización"></article>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
