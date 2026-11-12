@@ -5,8 +5,8 @@ function createWindow() {
   const win = new BrowserWindow({
     width: 1440,
     height: 940,
-    minWidth: 1100,
-    minHeight: 720,
+    minWidth: 360,
+    minHeight: 560,
     title: "Cotización CH Studio",
     backgroundColor: "#efefef",
     autoHideMenuBar: true,
